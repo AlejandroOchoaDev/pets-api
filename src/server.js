@@ -1,9 +1,11 @@
 const express = require('express')
+const cors = require('cors')
+
 const userRouter = require('./routers/users')
 const petsRouter = require('./routers/pets')
-const cors = require('cors')
+
 const app = express()
-let port = 3000
+let port = 8080
 
 app.use(cors())
 app.use(express.json())
