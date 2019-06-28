@@ -24,7 +24,7 @@ const petSchema = new Schema({
     required: true
   },
 
-  spacies: {
+  species: {
     type: String,
     required: true
   },

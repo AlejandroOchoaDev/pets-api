@@ -69,6 +69,30 @@ router.get('/:id', async (req, res) => {
   }
 })
 
+router.put('/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const petData = req.body
+
+    const UpdatePet = await pet.updateById(id, petData)
+    res.json({
+      success: true,
+      messege: 'pet update',
+      payload: {
+        pet: UpdatePet
+      }
+    })
+  } catch (error) {
+    console.error('Error:', error)
+    res.status(400)
+    res.json({
+      success: false,
+      messege: 'pet not update',
+      error: error.messege
+    })
+  }
+})
+
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params
